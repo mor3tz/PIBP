@@ -32,13 +32,13 @@
           <!-- Tombol Login -->
           <button type="button"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            mas masuk
+            Login
           </button>
 
           <!-- Tombol Daftar -->
           <button type="button"
             class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center transition duration-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800">
-            Sign Up
+            Daftar
           </button>
         </div>
 
@@ -46,15 +46,15 @@
       <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
         <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
           <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-black  d:bg-transparent  md:dark:text-black" aria-current="page">Beranda</a>
+            <a href="#" class="block py-2 px-3 md:p-0 text-gray-900  d:bg-transparent  md:dark:text-black" aria-current="page">Beranda</a>
           </li>
           <li>
-            <a href="#beasiswa" class="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:dark:hover:text-white dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"> Beasiswa</a>
+            <a href="#beasiswa" class="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:dark:hover:text-white"> Beasiswa</a>
           </li>
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-gray-800 rounded-sm hover:bg-gray-800 md:hover:bg-transparent md:hover:text-white md:dark:hover:text-white dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Favorite Saya</a>
+          <!-- <li>
+            <a href="#" class="block py-2 px-3 md:p-0 text-gray-900  md:hover:bg-transparent md:hover:text-white md:dark:hover:text-black  ">Favorite Saya</a>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </nav>
@@ -105,22 +105,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Element -->
-  <!-- <section class="trusted-companies">
-      <h2>Trusted by companies of all sizes</h2>
-      <div class="logo-container">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg"
-          alt="" />
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg"
-          alt="" />
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg"
-          alt="" />
-      </div>
-    </section> -->
   <!-- ======================== END HERO SECTION =================== -->
 
   <!-- =========================== MAIN CONTENT ==================== -->
