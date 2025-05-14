@@ -1,0 +1,330 @@
+body,
+html {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  /* padding-top: 60px; */
+  min-height: 100vh;
+  /* background-color: #dfdfdf; */
+  scroll-behavior: smooth;
+  overflow-y: auto;
+}
+
+/* =============== NAVBAR ================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+/* =============== ROW CONTENT ================ */
+.row-container {
+  /* background-color: aliceblue; */
+  /* border: 1px solid #000000; */
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* ============== MAIN CONTENT ============== */
+
+.main-content {
+  padding: 5rem 7% 2rem;
+  text-align: center;
+  background-color: rgb(202, 233, 253);
+}
+
+.main-content h1 {
+  margin-top: 1rem;
+}
+.main-content p {
+  margin-top: 15px;
+  font-size: medium;
+}
+
+/* =============== CONTAINER-BEASISWA ================ */
+.container-beasiswa {
+  padding: 5rem 7% 2rem;
+  text-align: center;
+}
+
+.container-card-beasiswa {
+  border-radius: 15px;
+  background-color: aliceblue;
+}
+
+.beranda {
+  background-color: rgb(202, 233, 253);
+}
+
+
+
+
+/* =============== FILTER BUTTON ================ */
+.filter {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+
+.filter button i {
+  margin-right: 6px;
+}
+
+/* =============== MODAL FILTER ================ */
+.modal-filter {
+  padding: 20px;
+  /* background-color: #fff; */
+  border-radius: 8px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  max-width: 800px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease, transform 0.3s ease;
+  display: none;
+  margin: 0 auto;
+}
+
+.modal-filter.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 150px;
+}
+
+.filter-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+.filter-group input,
+.filter-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.filter-group button {
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.filter-group button:hover {
+  background-color: #1d4ed8;
+}
+
+/* =============== CARD ================ */
+
+.container-card {
+  margin-top: 15px;
+  padding: 15px;
+  /* background: linear-gradient(100deg, #a8d0eb, #8ed3ee); */
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card {
+  position: relative;
+  padding-top: 1.5rem; /* beri ruang untuk label di atas */
+  transition: all 0.3s ease;
+}
+
+.label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  color: rgb(255, 255, 255);
+  border-radius: 9999px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+/* Warna label berbeda */
+.label-baru {
+  background-color: #3dd61f;
+}
+
+.label-akhir {
+  background-color: #f8c10c;
+}
+
+.content-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.more-link {
+  display: inline-block;
+  padding: 10px 24px;
+  background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.08);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.more-link:hover {
+  background: linear-gradient(90deg, #6366f1 0%, #a78bfa 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.content-more h4 {
+  font-size: small;
+  font-weight: normal;
+}
+
+.content-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.content-card .card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.content-card .card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.content-card .card h3 {
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+.content-card .card p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: auto;
+}
+
+.read-more-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #4f46e5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.read-more-btn:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.read-more-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* =============== MODAL DETAIL BEASISWA ================ */
+
+
+/* =============== PAGINATION ================ */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  margin-bottom: 5px;
+  align-items: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pagination a {
+  color: #007bff;
+  padding: 10px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pagination a:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  transform: scale(1.05);
+}
+
+.pagination a.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  font-weight: bold;
+  pointer-events: none;
+}
