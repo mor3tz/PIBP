@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- ========================== TAILWIND CSS ==================== -->
-    <link href="./src/output.css" rel="stylesheet" />
+    <link href="../src/output.css" rel="stylesheet" />
     <!-- ========================= CSS ============================== -->
     <link rel="stylesheet" href="../assets/CSS/style.css" />
     <!-- ======================== ICONS Bootstrap =================== -->
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- ========================== FLOWBITE ======================= -->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <title>Favorite - Beasiswa</title>
 </head>
 
 <body>
@@ -24,7 +25,7 @@
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#beranda" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-white">PORTAL INFORMASI BEASISWA</span>
+                <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-black">PORTAL INFORMASI BEASISWA</span>
             </a>
             <div class="flex md:order-2 mr-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 
@@ -32,13 +33,13 @@
                     <!-- Tombol Login -->
                     <button type="button"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Sign In
+                        Login
                     </button>
 
                     <!-- Tombol Daftar -->
                     <button type="button"
                         class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center transition duration-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800">
-                        Sign Up
+                        Daftar
                     </button>
                 </div>
 
@@ -46,13 +47,13 @@
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
                 <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
                     <li>
-                        <a href="../index.php" class="block py-2 px-3 md:p-0 text-black md:bg-transparent md:dark:text-black" aria-current="page">Beranda</a>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-gray-900" aria-current="page">Beranda</a>
                     </li>
                     <li>
-                        <a href="#beasiswa" class="block py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-black md:hover:bg-transparent md:hover:text-white md:dark:hover:text-white dark:text-blackdark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"> Beasiswa</a>
+                        <a href="#beasiswa" class="block py-2 px-3 md:p-0 text-gray-900"> Beasiswa</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 md:p-0 text-gray-800 rounded-sm  md:hover:bg-transparent md:hover:text-blue-200 md:dark:hover:text-blue-600 dark:text-black dark:hover:bg-gray-700 dark:hover:text-blue md:dark:hover:bg-transparent dark:border-gray-700">Favorite Saya</a>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-gray-900  ">Favorite Saya</a>
                     </li>
                 </ul>
             </div>
@@ -61,22 +62,12 @@
 
 
     <!-- ===================== BUTTON KEMBALI  ================== -->
-    <!-- <div class="mt-10 flex items-center justify-start p-5 pt-10 gap-x-6">
-        <a href="../index.php"
-            class="inline-flex items-center rounded-xl border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition-all duration-300 hover:bg-gray-100 hover:shadow-md hover:text-gray-900">
-            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
-            </svg>
-            Kembali
-        </a>
-    </div> -->
 
     <!-- ===================== BEASISWA ================== -->
     <section id="beasiswa">
         <div class="container-beasiswa font-semibold">
-            <h1 class="text-4xl pt-10">BEASISWA TERSEDIA</h1>
-            <p>Beasiswa Tersedia Saat ini, yang pastinya up-to-date🎉</p>
+            <h1 class="text-4xl pt-10">FAVORITE BEASISWA</h1>
+            <p class="pb-2">Informasi Beasiswa yang kamu simpan, ada disini🎉</p>
             <!-- ==================== Container Card =================== -->
             <div class="container-card-beasiswa">
                 <!-- ==================== Filter =================== -->
@@ -116,7 +107,7 @@
                     </div>
                 </div>
                 <!-- ==================== Card Beasiswa =================== -->
-                <div class="content-card">
+                <div class="content-card pb-6">
                     <div class="card" data-page="1" data-label="baru" data-kategori="nasional">
                         <span class="label label-baru">Baru!</span>
                         <img
@@ -128,7 +119,13 @@
                             Laboriosam minus quae non mollitia harum obcaecati vel
                             necessitatibus possimus ad distinctio.
                         </p>
-                        <button class="read-more-btn">Read More</button>
+                        <!-- Tombol area save -->
+                        <div class="card-actions">
+                            <button class="read-more-btn">Detail </button>
+                            <button class="save-btn" title="Simpan Beasiswa">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="card" data-page="1" data-label="baru" data-kategori="nasional">
                         <span class="label label-baru">Baru!</span>
@@ -141,7 +138,13 @@
                             Laboriosam minus quae non mollitia harum obcaecati vel
                             necessitatibus possimus ad distinctio.
                         </p>
-                        <button class="read-more-btn">Read More</button>
+                        <!-- Tombol area save -->
+                        <div class="card-actions">
+                            <button class="read-more-btn">Detail </button>
+                            <button class="save-btn" title="Simpan Beasiswa">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="card" data-page="1" data-label="baru" data-kategori="nasional">
                         <span class="label label-baru">Baru!</span>
@@ -154,7 +157,13 @@
                             Laboriosam minus quae non mollitia harum obcaecati vel
                             necessitatibus possimus ad distinctio.
                         </p>
-                        <button class="read-more-btn">Read More</button>
+                        <!-- Tombol area save -->
+                        <div class="card-actions">
+                            <button class="read-more-btn">Detail </button>
+                            <button class="save-btn" title="Simpan Beasiswa">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="card" data-page="1" data-label="baru" data-kategori="nasional">
                         <span class="label label-baru">Baru!</span>
@@ -167,10 +176,16 @@
                             Laboriosam minus quae non mollitia harum obcaecati vel
                             necessitatibus possimus ad distinctio.
                         </p>
-                        <button class="read-more-btn">Read More</button>
+                        <!-- Tombol area save -->
+                        <div class="card-actions">
+                            <button class="read-more-btn">Detail </button>
+                            <button class="save-btn" title="Simpan Beasiswa">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="card" data-page="1" data-label="baru" data-kategori="nasional">
-                        <span class="label label-baru">Baru!</span>
+                    <div class="card" data-page="1" data-label="akan-berakhir" data-kategori="nasional">
+                        <span class="label label-akhir">Segera Berakhir!</span>
                         <img
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQikl1x4NlW0Qf1lDeAtneXnltEXZe5Dms7Og&s"
                             alt="Beasiswa 1" />
@@ -180,46 +195,20 @@
                             Laboriosam minus quae non mollitia harum obcaecati vel
                             necessitatibus possimus ad distinctio.
                         </p>
-                        <button class="read-more-btn">Read More</button>
+                        <!-- Tombol area save -->
+                        <div class="card-actions">
+                            <button class="read-more-btn">Detail </button>
+                            <button class="save-btn" title="Simpan Beasiswa">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </div>
                     </div>
-                    <!-- CARD 2 -->
-                    <!-- <div class="card" data-page="2" data-label="akan-berakhir" data-kategori="daerah">
-                        <span class="label label-akhir">Segera Berakhir</span>
-                        <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQikl1x4NlW0Qf1lDeAtneXnltEXZe5Dms7Og&s"
-                            alt="Beasiswa 2" />
-                        <h3>BEASISWA NASIONAL</h3>
-                        <p class="card-text">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-                            recusandae sed corrupti obcaecati iste dolore et cupiditate qui
-                            quisquam asperiores?
-                        </p>
-                        <button class="read-more-btn">
-                            Read More
-                        </button>
-                    </div> -->
                 </div>
-
-                <!-- ==================== MODAL DETAIL BEASISWA =================== -->
-
-
-
-
                 <!-- ==================== Not Found =================== -->
                 <p id="noResultMessage" style="display: none; text-align: center; font-weight: bold; color: #888; padding: 1rem;">
                     ❌ Beasiswa tidak ditemukan.
                 </p>
-                <!-- =================== HALAMAN =================== -->
-                <div class="pagination">
-                    <a href="#">&laquo;</a>
-                    <a href="#" class="active">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">&raquo;</a>
-                </div>
+
             </div>
         </div>
     </section>
@@ -348,92 +337,7 @@
                 </ul>
             </div>
 
-            <div
-                class="grid grid-cols-1 gap-8 border-t border-gray-100 pt-10 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16">
-                <div>
-                    <p class="font-medium text-gray-900">Services</p>
 
-                    <ul class="mt-6 space-y-4 text-sm">
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> 1on1 Coaching </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> Company Review </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> HR Consulting </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <p class="font-medium text-gray-900">Company</p>
-
-                    <ul class="mt-6 space-y-4 text-sm">
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> About </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> Meet the Team </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <p class="font-medium text-gray-900">Helpful Links</p>
-
-                    <ul class="mt-6 space-y-4 text-sm">
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> Contact </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> FAQs </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> Live Chat </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <p class="font-medium text-gray-900">Legal</p>
-
-                    <ul class="mt-6 space-y-4 text-sm">
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> Accessibility </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> Returns Policy </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> Refund Policy </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75"> Hiring-3 Statistics </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
 
             <p class="text-xs pb-5 text-gray-500">&copy; 2022. Company Name. All rights reserved.</p>
         </div>
