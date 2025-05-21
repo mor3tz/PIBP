@@ -40,6 +40,7 @@
           <a href="#section-2">Tentang Kami</a>
           <a href="#section-3">Beasiswa</a>
           <a href="#">Favorite Beasiswa</a>
+          <a href="#admin">Admin</a>
         </div>
 
         <div class="buttons">

@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     backToTopBtn.addEventListener("click", () => {
       window.scrollTo({
-        top: 0,
+        top: 90,
         behavior: "smooth",
       });
     });
