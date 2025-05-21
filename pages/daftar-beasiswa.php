@@ -30,7 +30,7 @@
 
       <div class="nav-wrapper" id="navWrapper">
         <div class="nav-items">
-          <a href="#section-1">Beranda</a>
+          <a href="../index.php">Beranda</a>
           <a href="#section-2">Tentang Kami</a>
           <a href="#section-3">Beasiswa</a>
           <a href="#">Favorite Beasiswa</a>
@@ -96,7 +96,7 @@
               <i class="fa-regular fa-bookmark"></i>
               <span class="tooltip-saved">Tersimpan!</span>
             </span>
-            <a href="#" class="card-link">
+            <a href="detail-beasiswa.php" class="card-link">
               <div class="card-image-wrapper">
                 <img src="/assets/img/beasiswa.jpg" alt="Card Image" class="card-image">
               </div>

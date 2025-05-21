@@ -105,7 +105,7 @@
                 <i class="fa-regular fa-bookmark"></i>
                 <span class="tooltip-saved">Tersimpan!</span>
               </span>
-              <a href="#" class="card-link">
+              <a href="detail-beasiswa.php" class="card-link">
                 <div class="card-image-wrapper">
                   <img src="/assets/img/beasiswa.jpg" alt="Card Image" class="card-image">
                 </div>
@@ -122,7 +122,7 @@
                 <i class="fa-regular fa-bookmark"></i>
                 <span class="tooltip-saved">Tersimpan!</span>
               </span>
-              <a href="#" class="card-link">
+              <a href="detail-beasiswa.php" class="card-link">
                 <div class="card-image-wrapper">
                   <img src="/assets/img/beasiswa2.jpg" alt="Card Image" class="card-image">
                 </div>
@@ -139,7 +139,7 @@
                 <i class="fa-regular fa-bookmark"></i>
                 <span class="tooltip-saved">Tersimpan!</span>
               </span>
-              <a href="#" class="card-link">
+              <a href="detail-beasiswa.php" class="card-link">
                 <div class="card-image-wrapper">
                   <img src="/assets/img/beasiswa3.jpg" alt="Card Image" class="card-image">
                 </div>
