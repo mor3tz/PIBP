@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- ========================== CSS ==================== -->
   <link rel="stylesheet" href="../assets/CSS/detail.css">
-  <title>Daftar Beasiswa</title>
+  <title>Detail Beasiswa</title>
 </head>
 
 <body>
@@ -31,21 +31,25 @@
       <div class="nav-wrapper" id="navWrapper">
         <div class="nav-items">
           <a href="../index.php">Beranda</a>
-          <a href="#section-2">Tentang Kami</a>
+          <a href="../index.php">Tentang Kami</a>
           <a href="#section-3">Beasiswa</a>
-          <a href="#">Favorite Beasiswa</a>
+          <a href="/pages/daftar-beasiswa.php">Favorite Beasiswa</a>
+          <a href="/admin/login-admin.php" class="nav-link">
+            <ion-icon name="person"></ion-icon>
+            <span>Admin</span>
+          </a>
         </div>
 
         <div class="buttons">
-          <a href="/pages/login.php" class="login">Sign In</a>
+          <a href="/pages/login-user.php" class="login">Sign In</a>
         </div>
       </div>
     </div>
   </nav>
 
   <!-- =============== CONTAINER DETAIL BEASISWA ============== -->
-  <div class="container">
-    <h2>Detail BEASISWA KALTIM TUNTAS</h2>
+  <div class="container-detail">
+    <h2 class="detail-title">DETAIL BEASISWA KALTIM TUNTAS</h2>
 
     <!-- Detail Beasiswa -->
     <section class="beasiswa-details">
@@ -57,19 +61,20 @@
       <p><strong>Tanggal Awal:</strong> 1 Januari 2025</p>
       <p><strong>Tanggal Akhir:</strong> 30 Juni 2025</p>
       <div class="favorite-icon" id="favorite-icon">
-        <i class="fa-regular fa-bookmark" id="bookmark-icon"></i><span>Favorite</span>
+        <i class="fa-regular fa-bookmark" id="bookmark-icon"></i><span>Simpan</span>
       </div>
 
     </section>
 
     <!-- Syarat Beasiswa -->
     <section class="beasiswa-syarat">
-      <h3>Syarat Beasiswa</h3>
+      <h3 class="syarat-title">Syarat Beasiswa</h3>
       <ul>
         <li>Mahasiswa aktif di perguruan tinggi di Indonesia.</li>
         <li>Memiliki IPK minimal 3.0.</li>
         <li>Aktif dalam kegiatan sosial dan organisasi kampus.</li>
         <li>Melampirkan surat rekomendasi dari dosen atau organisasi.</li>
+        <li>Link Pendaftaran: <a href="https://beasiswa.kaltimprov.go.id/">Beasiswa Kaltim Tuntas</a></li>
       </ul>
     </section>
 
@@ -151,7 +156,9 @@
 
   <!-- ==================== JAVASCRIPT ==================== -->
   <script src="../assets/JS/detail-beasiswa.js"></script>
-  
+  <!-- ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

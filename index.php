@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,8 +19,7 @@
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <!-- ================== CSS ================ -->
-  <link rel="stylesheet" href="/assets/CSS/style.css">
-
+  <link rel="stylesheet" href="assets/CSS/style.css">
 </head>
 
 <body>
@@ -24,7 +27,7 @@
   <nav class="navbar">
     <div class="container">
       <div class="logo">
-        <img src="/assets/img/polnes.png" alt="Logo" />
+        <img src="assets/img/polnes.png" alt="Logo" />
         <span>INFORMASI BEASISWA 📢</span>
       </div>
 
@@ -39,12 +42,16 @@
           <a href="#section-1">Beranda</a>
           <a href="#section-2">Tentang Kami</a>
           <a href="#section-3">Beasiswa</a>
-          <a href="#">Favorite Beasiswa</a>
-          <a href="#admin">Admin</a>
+          <a href="pages/favorite.php">Favorite Beasiswa</a>
+          <a href="admin/login-admin.php" class="nav-link">
+            <ion-icon name="person"></ion-icon>
+            <span>Admin</span>
+          </a>
+
         </div>
 
         <div class="buttons">
-          <a href="/pages/login.php" class="login">Sign In</a>
+          <a href="pages/login-user.php" class="login">Sign In</a>
         </div>
       </div>
     </div>
@@ -105,12 +112,15 @@
                 <i class="fa-regular fa-bookmark"></i>
                 <span class="tooltip-saved">Tersimpan!</span>
               </span>
-              <a href="detail-beasiswa.php" class="card-link">
+              <a href="pages/detail-beasiswa.php" class="card-link">
                 <div class="card-image-wrapper">
-                  <img src="/assets/img/beasiswa.jpg" alt="Card Image" class="card-image">
+                  <img src="assets/img/beasiswa.jpg" alt="Card Image" class="card-image">
                 </div>
                 <p class="badge ">Swasta</p>
-                <h2 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                <h2 class="card-title">BEASISWA KALTIM TUNTAS.</h2>
+                <P class="card-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, esse!
+                </P>
                 <button class="card-button material-symbols-rounded">
                   arrow_forward
                 </button>
@@ -124,10 +134,13 @@
               </span>
               <a href="detail-beasiswa.php" class="card-link">
                 <div class="card-image-wrapper">
-                  <img src="/assets/img/beasiswa2.jpg" alt="Card Image" class="card-image">
+                  <img src="assets/img/beasiswa2.jpg" alt="Card Image" class="card-image">
                 </div>
                 <p class="badge daerah">Daerah</p>
-                <h2 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                <h2 class="card-title">BEASISWA SANTRI BERPRESTASI</h2>
+                <P class="card-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, esse!
+                </P>
                 <button class="card-button material-symbols-rounded">
                   arrow_forward
                 </button>
@@ -141,15 +154,22 @@
               </span>
               <a href="detail-beasiswa.php" class="card-link">
                 <div class="card-image-wrapper">
-                  <img src="/assets/img/beasiswa3.jpg" alt="Card Image" class="card-image">
+                  <img src="assets/img/beasiswa3.jpg" alt="Card Image" class="card-image">
                 </div>
                 <p class="badge nasional">Nasional</p>
-                <h2 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                <h2 class="card-title">BEASISWA PT. PERTAMINA Tbk</h2>
+                <P class="card-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, esse!
+                </P>
                 <button class="card-button material-symbols-rounded">
                   arrow_forward
                 </button>
               </a>
             </li>
+
+
+
+
             <li class="card-item swiper-slide">
               <div class="card-label expire">Segera Berakhir!</div>
               <span class="card-save">
@@ -158,27 +178,13 @@
               </span>
               <a href="#" class="card-link">
                 <div class="card-image-wrapper">
-                  <img src="/assets/img/beasiswa4.jpg" alt="Card Image" class="card-image">
+                  <img src="assets/img/beasiswa4.jpg" alt="Card Image" class="card-image">
                 </div>
                 <p class="badge nasional">Nasional</p>
-                <h2 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                <button class="card-button material-symbols-rounded">
-                  arrow_forward
-                </button>
-              </a>
-            </li>
-            <li class="card-item swiper-slide">
-              <div class="card-label expire">Segera Berakhir!</div>
-              <span class="card-save">
-                <i class="fa-regular fa-bookmark"></i>
-                <span class="tooltip-saved">Tersimpan!</span>
-              </span>
-              <a href="#" class="card-link">
-                <div class="card-image-wrapper">
-                  <img src="/assets/img/beasiswa5.jpg" alt="Card Image" class="card-image">
-                </div>
-                <p class="badge swasta">Swasta</p>
-                <h2 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                <h2 class="card-title">BEASISWA KUKAR IDAMAN</h2>
+                <P class="card-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, esse!
+                </P>
                 <button class="card-button material-symbols-rounded">
                   arrow_forward
                 </button>
@@ -188,7 +194,7 @@
 
           <!-- show more -->
           <div class="show-more-wrapper">
-            <a href="/pages/daftar-beasiswa.php" class="show-more-btn" target="_blank">Show More</a>
+            <a href="pages/daftar-beasiswa.php" class="show-more-btn" target="_blank">Show More</a>
           </div>
 
           <div class="swiper-pagination"></div>
@@ -203,7 +209,7 @@
   <footer class="footer-clean">
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="/assets/img/polnes.png" alt="Logo" />
+        <img src="assets/img/polnes.png" alt="Logo" />
         <p>PORTAL INFORMASI BEASISWA POLNES</p>
       </div>
 
@@ -228,7 +234,10 @@
   </footer>
   <!-- js -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="/assets/JS/script.js"></script>
+  <!-- ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="assets/JS/script.js"></script>
 </body>
 
 </html>

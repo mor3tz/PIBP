@@ -101,3 +101,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+const modal = document.getElementById("adminModal");
+const openBtn = document.getElementById("addModal");
+const closeBtn = document.querySelector(".close-button");
+
+openBtn.onclick = () => {
+  modal.style.display = "block";
+  const content = modal.querySelector(".modal-content");
+  content.style.animation = "none";
+  void content.offsetWidth;
+  content.style.animation = "slideUp 0.4s ease forwards";
+};
+
+closeBtn.onclick = () => (modal.style.display = "none");
+window.onclick = (e) => {
+  if (e.target == modal) modal.style.display = "none";
+};
+
+
+ const imageInput = document.getElementById('imageUpload');
+  const statusText = document.getElementById('uploadStatus');
+
+  imageInput.addEventListener('change', function () {
+    if (this.files && this.files[0]) {
+      const fileName = this.files[0].name;
+      statusText.textContent = `Gambar dipilih: ${fileName}`;
+    } else {
+      statusText.textContent = 'Belum ada gambar dipilih.';
+    }
+  });
+
+  
