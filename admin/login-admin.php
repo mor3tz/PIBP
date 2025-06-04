@@ -18,10 +18,10 @@
     <p id="error-message"></p>
     <form action="cekloginadmin.php" method="post" role="form" id="form">
       <div>
-        <label for="username">
+        <label for="adminuser">
           <span><i class="fa-regular fa-user"></i></span>
         </label>
-        <input type="text" name="username" id="username" placeholder="Username">
+        <input type="text" name="adminuser" id="adminuser" placeholder="Username">
       </div>
       <div>
         <label for="psw">

@@ -50,3 +50,27 @@ document.querySelectorAll('.card-save').forEach(function(btn) {
     }
   });
 });
+
+
+
+// MODAL LOGOUT ADMIN
+
+    const logoutBtn = document.getElementById('logout-admin');
+    const modal = document.getElementById('logoutModal');
+    const cancelBtn = document.getElementById('cancelLogout');
+
+    logoutBtn.addEventListener('click', function(e) {
+      e.preventDefault(); // Mencegah langsung ke logout
+      modal.style.display = 'flex';
+    });
+
+    cancelBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    // Tutup modal jika klik luar area konten
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });

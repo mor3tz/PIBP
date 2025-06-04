@@ -9,43 +9,12 @@
   <!-- =============== FONT AWESOME ================ -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- ========================== CSS ==================== -->
-  <link rel="stylesheet" href="../assets/CSS/detail.css">
+  <link rel="stylesheet" href="CSS/detail.css">
   <title>Detail Beasiswa</title>
 </head>
 
-<body>
-  <!-- ================ NAVBAR ============== -->
-  <nav class="navbar">
-    <div class="container">
-      <div class="logo">
-        <img src="/assets/img/polnes.png" alt="Logo" />
-        <span>INFORMASI BEASISWA 📢</span>
-      </div>
-
-      <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
-      <div class="nav-wrapper" id="navWrapper">
-        <div class="nav-items">
-          <a href="../index.php">Beranda</a>
-          <a href="../index.php">Tentang Kami</a>
-          <a href="#section-3">Beasiswa</a>
-          <a href="/pages/daftar-beasiswa.php">Favorite Beasiswa</a>
-          <a href="/admin/login-admin.php" class="nav-link">
-            <ion-icon name="person"></ion-icon>
-            <span>Admin</span>
-          </a>
-        </div>
-
-        <div class="buttons">
-          <a href="/pages/login-user.php" class="login">Sign In</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<body  data-logged-in="<?php echo isset($_SESSION['username']) ? 'true' : 'false'; ?>">
+ 
 
   <!-- =============== CONTAINER DETAIL BEASISWA ============== -->
   <div class="container-detail">
@@ -54,7 +23,7 @@
     <!-- Detail Beasiswa -->
     <section class="beasiswa-details">
       <div class="card-image-wrapper">
-        <img src="/assets/img/beasiswa.jpg" alt="Card Image" class="card-image">
+        <img src="img/beasiswa.jpg" alt="Card Image" class="card-image">
       </div>
       <p><strong>Nama Beasiswa:</strong> BEASISWA KALTIM TUNTAS</p>
       <p><strong>Deskripsi:</strong> Beasiswa ini diberikan kepada mahasiswa yang memiliki prestasi akademik dan aktif dalam kegiatan sosial. Beasiswa ini mencakup biaya kuliah dan biaya hidup selama 1 tahun.</p>
@@ -126,36 +95,25 @@
     </section>
   </div>
 
-  <!-- =============== FOOTER ============== -->
-  <footer class="footer-clean">
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img src="/assets/img/polnes.png" alt="Logo" />
-        <p>PORTAL INFORMASI BEASISWA POLNES</p>
-      </div>
 
-      <ul class="footer-nav">
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">Updates</a></li>
-      </ul>
+  <!-- MODAL LOGIN USER  -->
 
-      <p class="footer-subtitle">Follow Us</p>
-      <div class="footer-social">
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-        <a href="#"><i class="fa-brands fa-github"></i></a>
-      </div>
-
-      <p class="footer-copy">&copy; Official PIB POLNES</p>
+<!-- Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <p>Anda harus login untuk menyimpan beasiswa.</p>
+    <div class="modal-actions">
+      <a href="pages/login-user.php" class="btn btn-primary">Sign In</a>
+      <a href="register.php" class="btn btn-secondary">Daftar</a>
     </div>
-  </footer>
+  </div>
+</div>
 
   <!-- ==================== JAVASCRIPT ==================== -->
-  <script src="../assets/JS/detail-beasiswa.js"></script>
+
+
+  <script src="JS/detail-beasiswa.js"></script>
+  <script src="JS/favorite.js"></script>
   <!-- ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

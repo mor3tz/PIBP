@@ -26,3 +26,6 @@ document.getElementById('favorite-icon').addEventListener('click', function () {
     popup.remove();
   }, 2000);
 });
+
+
+
