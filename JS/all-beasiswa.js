@@ -84,24 +84,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (kategoriSelect) kategoriSelect.addEventListener("change", filterCards);
   if (popularSelect) popularSelect.addEventListener("change", filterCards);
   filterCards();
-
-  // === Back to Top Button ===
-  const backToTopBtn = document.getElementById("backToTopBtn");
-
-  if (backToTopBtn) {
-    window.addEventListener("scroll", () => {
-      backToTopBtn.style.display = window.scrollY > 90 ? "block" : "none";
-    });
-
-    backToTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 90,
-        behavior: "smooth",
-      });
-    });
-  }
 });
 
+// MODAL ADD BEASISWA
 const modal = document.getElementById("adminModal");
 const openBtn = document.getElementById("addModal");
 const closeBtn = document.querySelector(".close-button");
@@ -109,48 +94,75 @@ const closeBtn = document.querySelector(".close-button");
 openBtn.onclick = () => {
   modal.style.display = "block";
   const content = modal.querySelector(".modal-content");
-  content.style.animation = "none";
-  void content.offsetWidth;
+  content.style.animation = "none"; // reset
+  void content.offsetWidth; // trigger reflow
   content.style.animation = "slideUp 0.4s ease forwards";
 };
 
-closeBtn.onclick = () => (modal.style.display = "none");
-window.onclick = (e) => {
-  if (e.target == modal) modal.style.display = "none";
+closeBtn.onclick = () => {
+  modal.style.display = "none";
 };
 
+// MODAL EDIT BEASISWA
+const modalEditContent = document.getElementById("editBeasiswaModal");
+const btn = document.getElementById("editModal");
+const span = document.querySelector(".close");
 
- const imageInput = document.getElementById('imageUpload');
-  const statusText = document.getElementById('uploadStatus');
+btn.onclick = function () {
+  modalEditContent.style.display = "block";
+};
 
-  imageInput.addEventListener('change', function () {
-    if (this.files && this.files[0]) {
-      const fileName = this.files[0].name;
-      statusText.textContent = `Gambar dipilih: ${fileName}`;
-    } else {
-      statusText.textContent = 'Belum ada gambar dipilih.';
-    }
-  });
+span.onclick = function () {
+  modalEditContent.style.display = "none";
+};
 
+window.addEventListener("click", function (event) {
+  if (modal.style.display === "block" && event.target === modal) {
+    modal.style.display = "none";
+  }
+
+  if (
+    modalEditContent.style.display === "block" &&
+    event.target === modalEditContent
+  ) {
+    modalEditContent.style.display = "none";
+  }
+});
+
+// KETERANGAN UPLOAD IMAGE
+const imageInput = document.getElementById("imageUpload");
+const statusText = document.getElementById("uploadStatus");
+
+imageInput.addEventListener("change", function () {
+  if (this.files && this.files[0]) {
+    const fileName = this.files[0].name;
+    statusText.textContent = `Gambar dipilih: ${fileName}`;
+  } else {
+    statusText.textContent = "Belum ada gambar dipilih.";
+  }
+});
 
 // MODAL LOGOUT ADMIN
+const logoutBtn = document.getElementById("logout-admin");
+const modalAdmin = document.getElementById("logoutModal");
+const cancelBtn = document.getElementById("cancelLogout");
 
-    const logoutBtn = document.getElementById('logout-admin');
-    const modalAdmin = document.getElementById('logoutModal');
-    const cancelBtn = document.getElementById('cancelLogout');
+logoutBtn.addEventListener("click", function (e) {
+  e.preventDefault(); // Mencegah langsung ke logout
+  modalAdmin.style.display = "flex";
+});
 
-    logoutBtn.addEventListener('click', function(e) {
-      e.preventDefault(); // Mencegah langsung ke logout
-      modalAdmin.style.display = 'flex';
-    });
+cancelBtn.addEventListener("click", function () {
+  modalAdmin.style.display = "none";
+});
 
-    cancelBtn.addEventListener('click', function() {
-      modalAdmin.style.display = 'none';
-    });
+// Tutup modal jika klik luar area konten
+window.addEventListener("click", function (e) {
+  if (e.target === modalAdmin) {
+    modalAdmin.style.display = "none";
+  }
+});
 
-    // Tutup modal jika klik luar area konten
-    window.addEventListener('click', function(e) {
-      if (e.target === modalAdmin) {
-        modalAdmin.style.display = 'none';
-      }
-    });
+
+// DATA DUMMY
+

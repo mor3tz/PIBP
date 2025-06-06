@@ -21,8 +21,10 @@ if (!$result) {
   <!-- Link ke font dan CSS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="CSS/all-beasiswa.css">
+  <link rel="stylesheet" href="CSS/all-beasiswa.css?v=<?= time(); ?>">
   <title>Daftar Beasiswa</title>
+  <style>
+  </style>
 </head>
 
 <body>
@@ -49,7 +51,7 @@ if (!$result) {
           </button>
         </div>
         <div class="filter-container">
-          <button id="EditModal">
+          <button id="editModal">
             <ion-icon name="settings-sharp"></ion-icon> Edit Beasiswa
           </button>
         </div>
@@ -82,7 +84,7 @@ if (!$result) {
       </form>
     </div>
 
-    <!-- modal CRUD -->
+    <!-- ====================== MODAL ADD BEASISWA ===================-->
     <div id="adminModal" class="modal" style="display: none;">
       <div class="modal-content modern-modal">
         <span class="close-button">&times;</span>
@@ -136,9 +138,60 @@ if (!$result) {
       </div>
     </div>
 
+    <!-- ====================== MODAL EDIT BEASISWA ===================-->
+    <!-- Modal -->
+    <div id="editBeasiswaModal" class="modalEdit" style="display: none;">
+      <div class="modal-contentEdit">
+        <span class="close">&times;</span>
+        <h2>Edit Beasiswa</h2>
+        <div class="table-container">
+  <table id="editTable">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Kategori</th>
+        <th>Popular</th>
+        <th>Link Beasiswa</th>
+        <th>Tanggal Mulai</th>
+        <th>Tanggal Berakhir</th>
+        <th>Nama Beasiswa</th>
+        <th>Deskripsi</th>
+        <th>Persyaratan</th>
+        <th>Gambar</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Nasional</td>
+        <td>Baru</td>
+        <td><a href="https://contohbeasiswa.com" target="_blank">Kunjungi</a></td>
+        <td>2025-07-01</td>
+        <td>2025-08-15</td>
+        <td>Beasiswa Unggulan</td>
+        <td>Untuk mahasiswa berprestasi.</td>
+        <td>IPK ≥ 3.5, aktif organisasi</td>
+        <td><img src="https://via.placeholder.com/80" alt="Gambar" /></td>
+        <td>
+          <div class="action-buttons">
+            <button class="edit">Edit</button>
+            <button class="delete">Hapus</button>
+          </div>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+
+      </div>
+    </div>
+
+
+
     <!-- CARD BEASISWA -->
     <div class="container">
-      <!-- Card grid layout -->
       <div class="card-wrapper">
         <ul class="card-list" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding-left: 0;">
 
@@ -170,13 +223,10 @@ if (!$result) {
     </div>
   </section>
 
-  <!-- =================== MODAL EDIT ================== -->
-
-
-
-
   <!-- ==================== JAVASCRIPT ==================== -->
-  <script src="JS/all-beasiswa.js"></script>
+  
+
+  <script src="JS/all-beasiswa.js?v<?= time() ?>"></script>
 
   <!-- ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

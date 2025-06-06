@@ -29,7 +29,7 @@ session_start();
     <div class="container">
       <div class="logo">
         <img src="img/polnes.png" alt="Logo" />
-        <span>INFORMASI BEASISWA 📢</span>
+        <a href="index.php" style="text-decoration: none; color: inherit;"><span>INFORMASI BEASISWA 📢</span> </a>
       </div>
 
       <div class="hamburger" onclick="toggleMenu()">

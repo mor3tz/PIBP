@@ -131,7 +131,7 @@
 
         <!-- show more -->
         <div class="show-more-wrapper">
-          <a href="index.php?p=daftar-beasiswa" class="show-more-btn" target="_blank">Show More</a>
+          <a href="index.php?p=daftar-beasiswa" class="show-more-btn">Show More</a>
         </div>
 
         <div class="swiper-pagination"></div>
