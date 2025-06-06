@@ -14,7 +14,7 @@ $persyaratan = $_POST['persyaratan'];
 
 
 // Proses upload gambar
-$target_dir = "C:/xampp/htdocs/PIBP/img";
+$target_dir = "C:/xampp/htdocs/PIBP/img/";
 
 $target_file = $target_dir . basename($_FILES["image"]["name"]);
 

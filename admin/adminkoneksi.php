@@ -1,4 +1,4 @@
-<?php 
+<?php
 $servername =  "localhost";
 $username = "root";
 $password = "";
@@ -10,5 +10,3 @@ $adminkoneksi = mysqli_connect($servername, $username, $password, $database);
 if (!$adminkoneksi) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
-?>

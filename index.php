@@ -28,7 +28,7 @@ session_start();
   <nav class="navbar">
     <div class="container">
       <div class="logo">
-        <img src="assets/img/polnes.png" alt="Logo" />
+        <img src="img/polnes.png" alt="Logo" />
         <span>INFORMASI BEASISWA 📢</span>
       </div>
 
@@ -103,7 +103,7 @@ session_start();
   <footer class="footer-clean">
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="assets/img/polnes.png" alt="Logo" />
+        <img src="img/polnes.png" alt="Logo" />
         <p>PORTAL INFORMASI BEASISWA POLNES</p>
       </div>
 

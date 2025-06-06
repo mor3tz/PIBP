@@ -1,5 +1,29 @@
+<?php
+// Koneksi ke database
+include "koneksiuser.php";
+
+// Cek jika ada id yang dikirim melalui URL
+if (isset($_GET['id_beasiswa'])) {
+  $beasiswa_id = $_GET['id_beasiswa'];
+
+  // Query untuk mengambil data beasiswa berdasarkan ID
+  $query = "SELECT * FROM beasiswa WHERE id_beasiswa = '$beasiswa_id'";
+  $result = mysqli_query($koneksiUser, $query);
+
+  if (!$result) {
+    die("Query gagal: " . mysqli_error($koneksiUser));
+  }
+
+  // Ambil data beasiswa
+  $row = mysqli_fetch_assoc($result);
+} else {
+  echo "ID Beasiswa tidak ditemukan!";
+  exit;
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id_beasiswa">
 
 <head>
   <meta charset="UTF-8">
@@ -13,39 +37,42 @@
   <title>Detail Beasiswa</title>
 </head>
 
-<body  data-logged-in="<?php echo isset($_SESSION['username']) ? 'true' : 'false'; ?>">
- 
-
+<body data-logged-in="<?php echo isset($_SESSION['username']) ? 'true' : 'false'; ?>">
   <!-- =============== CONTAINER DETAIL BEASISWA ============== -->
   <div class="container-detail">
-    <h2 class="detail-title">DETAIL BEASISWA KALTIM TUNTAS</h2>
+    <h2 class="detail-title"><?php echo $row['nama_beasiswa']; ?></h2>
 
     <!-- Detail Beasiswa -->
     <section class="beasiswa-details">
       <div class="card-image-wrapper">
-        <img src="img/beasiswa.jpg" alt="Card Image" class="card-image">
+        <img src="img/<?php echo $row['image']; ?>" alt="Card Image" class="card-image">
       </div>
-      <p><strong>Nama Beasiswa:</strong> BEASISWA KALTIM TUNTAS</p>
-      <p><strong>Deskripsi:</strong> Beasiswa ini diberikan kepada mahasiswa yang memiliki prestasi akademik dan aktif dalam kegiatan sosial. Beasiswa ini mencakup biaya kuliah dan biaya hidup selama 1 tahun.</p>
-      <p><strong>Tanggal Awal:</strong> 1 Januari 2025</p>
-      <p><strong>Tanggal Akhir:</strong> 30 Juni 2025</p>
+      <p><strong>Nama Beasiswa:</strong> <?php echo $row['nama_beasiswa']; ?></p>
+      <p><strong>Deskripsi:</strong> <?php echo $row['deskripsi']; ?></p>
+      <p><strong>Tanggal Awal:</strong> <?php echo date('d M Y', strtotime($row['tanggal_mulai'])); ?></p>
+      <p><strong>Tanggal Akhir:</strong> <?php echo date('d M Y', strtotime($row['tanggal_berakhir'])); ?></p>
       <div class="favorite-icon" id="favorite-icon">
         <i class="fa-regular fa-bookmark" id="bookmark-icon"></i><span>Simpan</span>
       </div>
-
     </section>
 
     <!-- Syarat Beasiswa -->
     <section class="beasiswa-syarat">
       <h3 class="syarat-title">Syarat Beasiswa</h3>
       <ul>
-        <li>Mahasiswa aktif di perguruan tinggi di Indonesia.</li>
-        <li>Memiliki IPK minimal 3.0.</li>
-        <li>Aktif dalam kegiatan sosial dan organisasi kampus.</li>
-        <li>Melampirkan surat rekomendasi dari dosen atau organisasi.</li>
-        <li>Link Pendaftaran: <a href="https://beasiswa.kaltimprov.go.id/">Beasiswa Kaltim Tuntas</a></li>
+
+        <?php
+
+        $persyaratan = explode("\n", $row['persyaratan']);
+
+        foreach ($persyaratan as $syarat) {
+          echo "<li>" . htmlspecialchars($syarat) . "</li>";
+        }
+        ?>
+        <li>Link Pendaftaran: <a href="<?php echo htmlspecialchars($row['link_beasiswa']); ?>">Pendaftaran Beasiswa</a></li>
       </ul>
     </section>
+
 
     <!-- Kolom Komentar -->
     <section class="komentar">
@@ -95,26 +122,20 @@
     </section>
   </div>
 
-
-  <!-- MODAL LOGIN USER  -->
-
-<!-- Modal -->
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <p>Anda harus login untuk menyimpan beasiswa.</p>
-    <div class="modal-actions">
-      <a href="pages/login-user.php" class="btn btn-primary">Sign In</a>
-      <a href="register.php" class="btn btn-secondary">Daftar</a>
+  <!-- MODAL LOGIN USER -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <p>Anda harus login untuk menyimpan beasiswa.</p>
+      <div class="modal-actions">
+        <a href="pages/login-user.php" class="btn btn-primary">Sign In</a>
+        <a href="register.php" class="btn btn-secondary">Daftar</a>
+      </div>
     </div>
   </div>
-</div>
 
   <!-- ==================== JAVASCRIPT ==================== -->
-
-
   <script src="JS/detail-beasiswa.js"></script>
   <script src="JS/favorite.js"></script>
-  <!-- ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
