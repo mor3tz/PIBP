@@ -137,9 +137,7 @@ imageInput.addEventListener("change", function () {
   if (this.files && this.files[0]) {
     const fileName = this.files[0].name;
     statusText.textContent = `Gambar dipilih: ${fileName}`;
-  } else {
-    statusText.textContent = "Belum ada gambar dipilih.";
-  }
+  } 
 });
 
 // MODAL LOGOUT ADMIN

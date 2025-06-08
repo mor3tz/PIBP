@@ -1,16 +1,24 @@
 <?php
+session_start();
 
 include "koneksiuser.php";
 
+$id_user = $_SESSION['id_pengguna'] ?? null;
 
-$query = "SELECT * FROM beasiswa ORDER BY tanggal_berakhir DESC";
+if (!$id_user) {
+    echo "<script>alert('Silakan login terlebih dahulu.'); window.location.href='index.php?p=login';</script>";
+    exit;
+}
+
+$query = "SELECT * FROM beasiswa WHERE aktif = 1";
 $result = mysqli_query($koneksiUser, $query);
 
-
 if (!$result) {
-  die("Query gagal: " . mysqli_error($koneksiUser));
+    die("Query gagal: " . mysqli_error($koneksiUser));
 }
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">
@@ -24,6 +32,7 @@ if (!$result) {
   <link rel="stylesheet" href="CSS/all-beasiswa.css?v=<?= time(); ?>">
   <title>Daftar Beasiswa</title>
   <style>
+    
   </style>
 </head>
 
@@ -53,11 +62,6 @@ if (!$result) {
         <div class="filter-container">
           <button id="editModal">
             <ion-icon name="settings-sharp"></ion-icon> Edit Beasiswa
-          </button>
-        </div>
-        <div class="filter-container">
-          <button id="deleteCard">
-            <ion-icon name="trash-sharp"></ion-icon> Hapus Beasiswa
           </button>
         </div>
       <?php endif; ?>
@@ -92,7 +96,7 @@ if (!$result) {
 
         <form action="pages/beasiswa-inputproses.php" class="admin-input-form" method="post" enctype="multipart/form-data">
           <label>Kategori:
-            <select name="kategori" required>
+            <select name="kategori" required class="styled-select">
               <option value="Nasional">Nasional</option>
               <option value="swasta">Swasta</option>
               <option value="daerah">Daerah</option>
@@ -103,11 +107,9 @@ if (!$result) {
             <input type="text" name="popular" value="Baru" readonly />
           </label>
 
-          <div class="form-group">
-            <label for="image">Upload Gambar:</label>
+          <label for="image">Upload Gambar:
             <input type="file" id="image" name="image" accept="image/*" />
-            <p id="uploadStatus" class="upload-status">Belum ada gambar dipilih.</p>
-          </div>
+          </label>
 
           <label>Link Beasiswa:
             <input type="text" name="link_beasiswa" required />
@@ -139,71 +141,115 @@ if (!$result) {
     </div>
 
     <!-- ====================== MODAL EDIT BEASISWA ===================-->
-    <!-- Modal -->
     <div id="editBeasiswaModal" class="modalEdit" style="display: none;">
       <div class="modal-contentEdit">
         <span class="close">&times;</span>
         <h2>Edit Beasiswa</h2>
         <div class="table-container">
-  <table id="editTable">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Kategori</th>
-        <th>Popular</th>
-        <th>Link Beasiswa</th>
-        <th>Tanggal Mulai</th>
-        <th>Tanggal Berakhir</th>
-        <th>Nama Beasiswa</th>
-        <th>Deskripsi</th>
-        <th>Persyaratan</th>
-        <th>Gambar</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Nasional</td>
-        <td>Baru</td>
-        <td><a href="https://contohbeasiswa.com" target="_blank">Kunjungi</a></td>
-        <td>2025-07-01</td>
-        <td>2025-08-15</td>
-        <td>Beasiswa Unggulan</td>
-        <td>Untuk mahasiswa berprestasi.</td>
-        <td>IPK ≥ 3.5, aktif organisasi</td>
-        <td><img src="https://via.placeholder.com/80" alt="Gambar" /></td>
-        <td>
-          <div class="action-buttons">
-            <button class="edit">Edit</button>
-            <button class="delete">Hapus</button>
+          <div class="search-edit">
+            <input type="text" id="searchEditInput" placeholder="Cari nama beasiswa..." />
           </div>
-        </td>
-      </tr>
-     
-    </tbody>
-  </table>
-</div>
+          <table id="editTable">
+            <thead>
+              <tr class="table-row">
+                <th>No</th>
+                <th>Kategori</th>
+                <th>Popular</th>
+                <th>Nama Beasiswa</th>
+                <th>Gambar</th>
+                <th>Aksi</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              include "admin/adminkoneksi.php";
 
+              // Ambil data untuk TABEL
+              $sqlTable = "SELECT * FROM beasiswa where aktif = 1";
+              $resultTable = mysqli_query($koneksiUser, $sqlTable);
+
+              $no = 1;
+
+              if (mysqli_num_rows($resultTable) > 0) {
+                while ($row = mysqli_fetch_assoc($resultTable)) {
+                  if ($row['id_beasiswa'] != 1) {
+
+                    $populer = strtolower($row['populer']);
+                    $warnaClass = '';
+
+                    if ($populer == 'baru') {
+                      $warnaClass = 'badge-baru';
+                    } elseif ($populer == 'populer') {
+                      $warnaClass = 'badge-populer';
+                    } elseif ($populer == 'segera berakhir') {
+                      $warnaClass = 'badge-akhir';
+                    } else {
+                      $warnaClass = 'badge-default';
+                    }
+
+                    echo "<tr>";
+                    echo "<td>" . $no++ . "</td>";
+                    echo "<td>" . htmlspecialchars($row['kategori']) . "</td>";
+
+
+                    echo "<td class='populer $warnaClass'>" . htmlspecialchars($row['populer']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['nama_beasiswa']) . "</td>";
+                    echo "<td><img src='img/" . htmlspecialchars($row['image']) . "' alt='Gambar Beasiswa' style='width: 100px; height: auto;'></td>";
+
+                    $id_beasiswa = htmlspecialchars($row['id_beasiswa']);
+
+                    // edit
+                    echo "<td><a href='index.php?p=edit-beasiswa&id_beasiswa=" . $row['id_beasiswa'] . "' class='btn-edit' style='text-decoration: none; color: white; background-color: #007BFF; padding: 8px 20px; border-radius: 5px; cursor: pointer;'>Edit</a></td>";
+
+
+                    // hapus
+                    echo "<td><a href='index.php?p=beasiswa-hapus&id_beasiswa=" . $row['id_beasiswa'] . "' class='btn-hapus' style='text-decoration: none; color: white; background-color: #FF0000; padding: 8px 20px; border-radius: 5px; cursor: pointer; '>Hapus</a></td>";
+                  }
+                }
+              } else {
+                echo "<tr><td colspan='11'>Tidak ada data beasiswa yang ditemukan.</td></tr>";
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
-
-
     <!-- CARD BEASISWA -->
+    <?php
+    $sqlCard = "SELECT * FROM beasiswa WHERE aktif = 1";
+    $resultCard = mysqli_query($koneksiUser, $sqlCard);
+    ?>
     <div class="container">
       <div class="card-wrapper">
         <ul class="card-list" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding-left: 0;">
 
-          <?php while ($row = mysqli_fetch_assoc($result)): ?>
+          <?php while ($row = mysqli_fetch_assoc($resultCard)): ?>
+            <?php
+$id_beasiswa = $row['id_beasiswa'];
+$queryFavorit = "SELECT * FROM favorite WHERE id_pengguna = $id_user AND id_beasiswa = $id_beasiswa";
+$resultFavorit = mysqli_query($koneksiUser, $queryFavorit);
+$isFavorited = mysqli_num_rows($resultFavorit) > 0;
+?>
+
             <li class="card-item" data-kategori="<?php echo $row['kategori']; ?>" data-popular="<?php echo $row['populer']; ?>" style="flex: 1 1 300px; max-width: 300px;">
               <div class="card-label <?php echo (strtolower($row['populer']) == 'baru') ? 'new' : 'expire'; ?>">
                 <?php echo (strtolower($row['populer']) == 'baru') ? 'Baru!' : 'Segera Berakhir!'; ?>
               </div>
               <span class="card-save">
-                <i class="fa-regular fa-bookmark"></i>
-                <span class="tooltip-saved">Tersimpan!</span>
-              </span>
+  <?php if ($isFavorited): ?>
+    <i class="fa-solid fa-bookmark bookmarked"></i>
+    <span class="tooltip-saved">Tersimpan!</span>
+  <?php else: ?>
+    <i class="fa-regular fa-bookmark"></i>
+    <span class="tooltip-saved">Klik untuk Simpan</span>
+  <?php endif; ?>
+</span>
+
+
+              
               <a href="index.php?p=detail-beasiswa&id_beasiswa=<?php echo $row['id_beasiswa']; ?>" class="card-link">
                 <div class="card-image-wrapper">
                   <img src="img/<?php echo $row['image']; ?>" alt="Card Image" class="card-image">
@@ -216,23 +262,16 @@ if (!$result) {
             </li>
           <?php endwhile; ?>
         </ul>
-        <p id="noResultsMessage" style="display: none; text-align: center; margin-top: 20px; font-weight: bold;">
+        <p id="noResultsMessage">
           Pencarian tidak ditemukan.
         </p>
       </div>
     </div>
   </section>
-
   <!-- ==================== JAVASCRIPT ==================== -->
-  
-
   <script src="JS/all-beasiswa.js?v<?= time() ?>"></script>
-
   <!-- ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-
 </body>
-
 </html>

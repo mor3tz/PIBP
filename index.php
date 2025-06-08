@@ -20,7 +20,108 @@ session_start();
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <!-- ================== CSS ================ -->
-  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/style.css?v=<?= time(); ?>" />
+
+  <style>
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+      z-index: 10000;
+      position: relative;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+      transform-origin: center;
+    }
+
+
+    /* Default untuk layar besar */
+    .nav-wrapper {
+      display: flex;
+      position: static;
+      /* biasa saja, bukan absolute */
+      flex-direction: row;
+      gap: 40px;
+      align-items: center;
+      justify-content: flex-end;
+      width: auto;
+      background: none;
+      padding: 0;
+      box-shadow: none;
+      font-size: 16px;
+    }
+
+    /* Responsive untuk layar kecil */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-wrapper {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 80%;
+        margin: 0 auto;
+        background-color: #f5f5f5;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        display: none;
+        /* default sembunyi */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        z-index: 999;
+        font-size: 18px;
+      }
+
+      .nav-wrapper.active {
+        display: flex;
+      }
+
+      .nav-items {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-items a {
+        font-size: 18px;
+        font-weight: 400;
+        padding: 10px 20px;
+        border-radius: 8px;
+        background-color: #e0e0e0;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+      }
+
+      .buttons a {
+        width: 100%;
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -45,7 +146,7 @@ session_start();
           <a href="#section-3">Beasiswa</a>
 
           <?php if (isset($_SESSION['id_pengguna'])): ?>
-            <a href="pages/favorite.php">Favorite Beasiswa</a>
+            <a href="index.php?p=favorite">Favorite Beasiswa</a>
           <?php endif; ?>
 
           <!-- Tampilkan button Admin hanya jika BELUM login -->
@@ -140,12 +241,21 @@ session_start();
 
 
   <!-- ================== JAVASCRIPT ================== -->
+  <!-- HAMBURGER MENU -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navWrapper");
+      const burger = document.querySelector('.hamburger');
+      nav.classList.toggle("active");
+      burger.classList.toggle("active");
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <!-- ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="JS/script.js"></script>
+  <script src="JS/script.js?v=<?= time(); ?>"></script>
 </body>
 
 </html>

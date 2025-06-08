@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: linear-gradient( to right,
+    #c0d7ee,
+    #f4f7fa);
+  line-height: 1.6;
+}
+
+.containerEdit {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-titleEdit {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Wrapper agar form lebih tertata */
+form {
+  
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  padding-top: 5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Setiap label & field diatur vertikal */
+form label {
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Style untuk input, select, textarea */
+form input[type="text"],
+form input[type="date"],
+form input[type="file"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+/* Saat fokus pada field */
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Tombol submit */
+form .submit-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+form .submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style tambahan untuk textarea */
+form textarea {
+  resize: vertical;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  form {
+    padding: 20px;
+  }
+}

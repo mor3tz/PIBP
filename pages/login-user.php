@@ -7,7 +7,7 @@
    <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <!-- =============== CSS =============== -->
-   <link rel="stylesheet" href="../assets/CSS/login.css">
+   <link rel="stylesheet" href="../CSS/login.css?v=<?= time(); ?>" />
    <title>Login Portal Informasi Beasiswa</title>
 
 </head>
@@ -36,14 +36,17 @@
             <input type="email" name="email" placeholder="Email" required />
             <input type="password" name="password" placeholder="Password" required />
             <input type="password" name="konfirmasi" placeholder="Konfirmasi Password" required />
-
-            <select name="jenjang" required >
-               <option value=""></option>
-               <option value="D3">D3</option>
-               <option value="D4">D4</option>
-               <option value="S1">S1</option>
-               <option value="S2">S2</option>
-            </select>
+            <div class="form-group">
+               
+               <label for="jenjang">Jenjang Pendidikan</label>
+               <select name="jenjang" id="jenjang" required>
+                  <option value="" disabled selected>Pilih jenjang</option>
+                  <option value="D3">D3</option>
+                  <option value="D4">D4</option>
+                  <option value="S1">S1</option>
+                  <option value="S2">S2</option>
+               </select>
+            </div>
 
             <button type="submit">Register</button>
             <div class="toggle">
@@ -54,7 +57,7 @@
    </div>
    </div>
    <!-- =============== JS =============== -->
-   <script src="../assets/JS/login.js"></script>
+   <script src="../JS/login.js?v=<?= time(); ?>"></script>
 </body>
 
 </html>

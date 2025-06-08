@@ -1,175 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  height: 100vh;
-  scroll-behavior: smooth;
-}
-
-.navbar {
-  position: fixed;
-  /* background: linear-gradient( #cce1f0, #bcdef5); */
-  background-color: #f5f5f5;
-  padding: 20px;
-  width: 100%;
-  max-width: 1200px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999; /* supaya navbar di atas elemen lain */
-  margin-top: 10px;
-  border-radius: 20px;
-  box-shadow: 0 10px 10px rgb(0, 0, 0, 0.05);
-}
-
-.container {
-  /* max-width: 1200px; */
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* jarak antara gambar dan teks */
-  font-weight: bold;
-  font-size: 20px;
-  color: rgb(83, 83, 83);
-  cursor: pointer;
-}
-
-.logo img {
-  height: 50px; /* sesuaikan ukuran logo */
-  width: auto;
-  /* border-radius: 15px; */
-  display: block;
-}
-
-.nav-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.nav-items {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-items a {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  position: relative; /* Tambahkan ini untuk pseudo-element */
-  transition: color 0.3s ease;
-}
-
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #000;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.nav-link:hover {
-  color: #63809e;
-}
-
-.nav-items a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(to right, #bbd5e4, #3389bb);
-  transition: width 0.3s cubic-bezier(0.4, 2, 0.6, 1);
-}
-
-.nav-items a:hover {
-  color: #63809e;
-}
-
-.nav-items a:hover::after {
-  width: 100%;
-}
-
-.buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.buttons a {
-  text-decoration: none;
-}
-
-.login {
-  font-family: "Inter", sans-serif;
-  padding: 10px 15px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  transition: background 0.4s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.3s;
-}
-
-.login:hover {
-  background: linear-gradient(90deg, #bbd5e4 0%, #3389bb 100%);
-  box-shadow: 0 4px 16px rgba(51, 137, 187, 0.15);
-}
-
-#logout-admin {
-  color: #ff0062;
-}
-
-.logout-user {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Jarak antara icon dan teks */
-  color: white;
-  background-color: rgb(224, 64, 64);
-  padding: 10px 15px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.logout-user ion-icon {
-  font-size: 18px;
-  vertical-align: middle;
-}
-
-.logout-user:hover {
-  background-color: rgb(200, 50, 50);
-  color: white;
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  cursor: pointer;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-}
 
 /* CARD */
 /* SECTION 4 CARD */
@@ -193,7 +23,7 @@ body {
 }
 
 .section-4 {
-  background-color: #dddd;
+  background-color: #ffffff;
   max-width: 100vw;
   display: flex;
   flex-direction: column;
@@ -238,7 +68,6 @@ body {
 .card-wrapper {
   padding-top: 3rem;
   /* max-width: 1500px; */
-  margin: 0 100px 35px;
   overflow: hidden;
   /* position: relative; */
 }
@@ -382,37 +211,35 @@ body {
 
 /* BUTTON ADMIN */
 
-    #addModal {
-      background-color: #28a745;
-      /* Hijau */
-      color: white;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+#addModal {
+  background-color: #28a745;
+  /* Hijau */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    #editModal {
-      background-color: #DFC323FF;
-      /* Biru */
-      color: white;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+#editModal {
+  background-color: #dfc323ff;
+  /* Biru */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    #deleteCard {
-      background-color: #dc3545;
-      /* Merah */
-      color: white;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-
+#deleteCard {
+  background-color: #dc3545;
+  /* Merah */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
 /* Modal ADD BEASISWA */
 .modal {
@@ -463,6 +290,29 @@ body {
   color: #333;
 }
 
+/* dropdown icon */
+.styled-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 40px 10px 15px;
+  font-size: 1rem;
+  border-radius: 6px;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8"><path fill="none" stroke="%23333" stroke-width="2" d="M1 1l5 5 5-5"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px 8px;
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.styled-select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
 /* Form Label */
 .admin-input-form label {
   display: block;
@@ -470,6 +320,8 @@ body {
   color: #222;
   font-weight: 600;
   font-size: 14px;
+  text-align: left;
+  padding: 5px;
 }
 
 /* Form Elements */
@@ -517,7 +369,7 @@ body {
 
 /* FILE UPLOAD */
 .upload-status {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   font-size: 14px;
   color: #555;
   font-style: italic;
@@ -554,7 +406,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 @keyframes fadeInModal {
@@ -586,10 +438,10 @@ body {
   border-radius: 10px;
   width: 90%;
   /* max-width: 500px; */
-  max-height: 300px;
-  overflow-y: auto;
+  max-height: 800px;
+  /* overflow-y: auto; */
   position: relative;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.3s ease forwards;
   opacity: 0;
 }
@@ -618,30 +470,34 @@ body {
   box-sizing: border-box;
 }
 
-
 /* table */
 .table-container {
   width: 100%;
-  overflow-x: auto;
+  overflow-y: auto;
   margin-top: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.table-row {
+  text-align: center;
 }
 
 #editTable {
   width: 100%;
   border-collapse: collapse;
   min-width: 1000px;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background-color: #fff;
 }
 
 #editTable thead {
-  background-color: #2d6cdf;
+  background: linear-gradient(135deg, #6fc2e9, #5a8ec2);
   color: white;
 }
 
-#editTable th, #editTable td {
+#editTable th,
+#editTable td {
   padding: 12px 16px;
   text-align: left;
   border-bottom: 1px solid #eee;
@@ -693,13 +549,14 @@ body {
   opacity: 0.9;
 }
 
-
+/* ================= BADGE POPULER CARD ================ */
+.populer {
+  color: #ff0062;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
 
 /* ================= MODAL EDIT BEASISWA END ================ */
-
-
-
-
 
 .filter-wrapper {
   display: flex;
@@ -831,10 +688,33 @@ body {
   z-index: 10;
 }
 
-#backToTopBtn:hover {
-  background-color: #2c80b4;
-  transform: scale(1.1);
+
+/* Search Bar edit page */
+.search-edit {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 500px;
 }
+
+#searchEditInput {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+#searchEditInput:focus {
+  border-color: #007BFF;
+  background-color: #f9f9ff;
+  box-shadow: 0 0 10px rgba(0,123,255,0.3);
+}
+
 
 /* FOOTER */
 .footer-clean {
@@ -953,5 +833,44 @@ body {
   .filter-container button {
     width: 100%;
     box-sizing: border-box;
+  }
+}
+
+
+/* ================= RESPONSIVE FILTER ================ */
+
+/* RESPONSIVE BREAKPOINT */
+@media (max-width: 768px) {
+  .filter-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #filterForm {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #filterForm input,
+  #filterForm select {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .container-section4 h2 {
+    font-size: 24px;
+  }
+
+  .container-section4 p {
+    font-size: 14px;
+  }
+
+  .filter-container button {
+    font-size: 16px;
   }
 }

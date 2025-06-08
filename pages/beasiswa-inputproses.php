@@ -27,8 +27,8 @@ if (move_uploaded_file($_FILES["image"]["tmp_name"],
 $target_file)) {
     $filefoto = basename($_FILES["image"]["name"]);
 
-    $sql = "INSERT INTO beasiswa (populer,nama_beasiswa,kategori,image,deskripsi,persyaratan,link_beasiswa,tanggal_mulai,tanggal_berakhir) 
-    VALUES ('$popular', '$nama_beasiswa', '$kategori', '$filefoto', '$deskripsi', '$persyaratan', '$link_beasiswa', '$tanggal_mulai', '$tanggal_berakhir')";
+    $sql = "INSERT INTO beasiswa  (populer,nama_beasiswa,kategori,image,deskripsi,persyaratan,link_beasiswa,tanggal_mulai,tanggal_berakhir, aktif) 
+    VALUES ('$popular', '$nama_beasiswa', '$kategori', '$filefoto', '$deskripsi', '$persyaratan', '$link_beasiswa', '$tanggal_mulai', '$tanggal_berakhir', 1)";
 
     if (mysqli_query($koneksiUser, $sql)) {
     echo "<script>
